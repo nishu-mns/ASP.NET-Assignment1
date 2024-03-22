@@ -48,7 +48,7 @@ namespace Assignment1.Controllers
 
             _dbContext.KeyValuePairs.Add(keyValue);
             await _dbContext.SaveChangesAsync();
-            return Ok();
+            return Ok(keyValue);
         }
 
         [HttpPatch("{key}/{value}")]
@@ -59,7 +59,7 @@ namespace Assignment1.Controllers
             {
                 keyValue.Value = value;
                 await _dbContext.SaveChangesAsync();
-                return Ok();
+                return Ok(keyValue);
             }
             return NotFound();
         }
@@ -72,7 +72,7 @@ namespace Assignment1.Controllers
             {
                 _dbContext.KeyValuePairs.Remove(keyValue);
                 await _dbContext.SaveChangesAsync();
-                return Ok();
+                return Ok(keyValue);
             }
             return NotFound();
         }
